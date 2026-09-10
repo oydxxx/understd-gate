@@ -1,0 +1,16 @@
+# dsh-constitution-gate bundle patch: one insert registering the gate plugin.
+# The row id must match the node half's exported cordis `name`.
+- insert:
+    - id: constitution-gate
+      name: 'dsh-constitution-gate'
+      config:
+        mode: 'supervise'          # supervise=只提醒 / gate=硬拦截 / off=关
+        dshRoot: ''   # 改成你放本项目的位置，插件据此找到 understd/check.py
+        pythonBin: 'python3'
+        minChars: 120              # 短于此的步骤不检查
+        timeoutMs: 20000
+        remindOnViolation: true
+        injectProtocol: true
+        coldRead: false            # 冷读较慢，默认关；开了会异步跑
+        coldRuns: 3
+        coldMinChars: 800

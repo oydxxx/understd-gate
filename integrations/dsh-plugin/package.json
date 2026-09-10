@@ -1,0 +1,21 @@
+{
+  "name": "dsh-constitution-gate",
+  "version": "0.1.0",
+  "description": "输出宪法闸门：每步回复自动过理解检查器，违规就提醒（可选硬拦截）。v0.1 只提醒。",
+  "keywords": ["deepseek", "harness", "dsh", "cordis", "plugin", "constitution", "gate"],
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "files": ["lib", "cordis.patch.yml"],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
